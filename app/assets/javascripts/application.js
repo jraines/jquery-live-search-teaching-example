@@ -15,6 +15,10 @@
 //= require turbolinks
 //= require_tree .
 
+//Here we replicate the _product partial
+//The ugliness here is a big part of why many
+//front-end frameworks exist -- just to have
+//better templating for client side views
 function productTemplate(p){
   return "<div class='product'>" +
          "<p>id: " + p.id +
