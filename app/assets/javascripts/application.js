@@ -14,3 +14,30 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+function productTemplate(p){
+  return "<div class='product'>" +
+         "<p>id: " + p.id +
+         "</p>" +
+         "<p>name: " + p.name +
+         "</p>" +
+         "<p>description: " + p.description +
+         "</p>" +
+         "</div>"
+}
+
+function renderSearchResults(data){
+  results = data.map(productTemplate).join("");
+  $("#products").html(results)
+}
+
+function performSearch(e){
+  urlBase = "/search?query=";
+  url     = urlBase + $(e.target).val();
+  $.getJSON(url, renderSearchResults)
+}
+
+
+$(document).ready(function(){
+  $("#search").keyup(performSearch);
+});
