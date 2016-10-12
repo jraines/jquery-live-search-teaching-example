@@ -9,7 +9,7 @@ class ProductsController < ApplicationController
     #of where it appears in the text value of the given field
     formatted_query = "%#{params[:query]}%"
 
-    @products = Product.where("name like ?", formatted_query)
+    @products = Product.where("name like ? or description like ?", formatted_query, formatted_query)
     render json: @products
   end
 end
