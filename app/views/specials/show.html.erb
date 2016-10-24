@@ -1,0 +1,6 @@
+<% @special.versions.each do |v| %>
+  <div>
+    <%= v.products.map(&:id).join(",") %>
+  </div>
+<% end %>
+
